@@ -5,6 +5,7 @@ data = open('day2_data.txt').read().split('\n')
 directions = [tuple(direction.split()) for direction in data]
 directions = directions[: -1]
 
+# PART A
 def calculate_depth_and_horizontal(direction_data):
     '''
     Calculates the final depth and horizontal position 
@@ -26,23 +27,29 @@ def calculate_depth_and_horizontal(direction_data):
 
     return (horizontal, depth)
 
-    
 
 
+# PART B
+def calculate_depth_and_horizontal_with_aim(direction_data):
+    '''
+    '''
+
+    horizontal = 0
+    depth = 0
+    aim = 0 
+
+    for direction, value in direction_data:
+        if direction == 'forward':
+            horizontal += int(value)
+            depth += aim * int(value)
+        elif direction == 'down':
+            aim += int(value) 
+        elif direction == 'up':
+            aim -= int(value)
+
+    return (horizontal, depth)
 
 
-
-
-
-# for i in directions:
-#     print(type(i))
-#     break 
-
-# for direction, value in directions:
-#     print(direction)
-#     print(value)
-#     print('_______________')
-#     print('')
 
 
 
